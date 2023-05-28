@@ -1,0 +1,191 @@
+/* FONT */
+@font-face {
+    font-family: 'Sunrise';
+    src: url(../fonts/wg_sunrise_font/wg_sunrise_font.woff) format('woff');
+}
+
+/* style utama */
+
+body {
+    font: 18px/36px 'Sunrise', 'Arial Narrow', arial, sans-serif;
+    background-color: #ddd;
+}
+
+
+h1 {
+    font-size: 80px;
+    margin: 50px 0;
+    text-align: center;
+    text-shadow: 1px 1px 2px white;
+}
+
+.container {
+    width: 600px;
+    background-color: white;
+    margin: auto;
+    padding: 30px;
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, .3);
+    border-radius: 8px;
+}
+
+.galery li {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    /* overflow: hidden; */
+    border: 5px solid #333;
+    float: left;
+    margin-right: 20px;
+    position: relative;
+
+}
+
+.galery li a img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.galery li span {
+    display: block;
+    height: 120px;
+    width: 120px;
+    background-color: rgba(200,200,200,.5);
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    line-height: 120px;
+    color: #333;
+    font-size: 40px;
+    text-shadow: 1px 1px 1px #ddd;
+    opacity: 0 ;
+    transform: scale(0) rotate(0);
+    transition: .3s;
+}
+
+.galery li a:hover span {
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+}
+
+.clear {
+    clear: both;
+}
+
+/* overlay */
+
+.overlay {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    transition: .8s;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.overlay:target {
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,.8);
+}
+
+.overlay img {
+    max-height: 100%;
+    box-shadow: 2px 2px 7px rgba(0,0,0,.8);
+}
+
+.overlay:target img {
+    animation: zoomDanFade 1s;
+}
+.overlay .close {
+    position: absolute;
+    top: 65px;
+    left: 67.7%;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+    border: 1px solid rgb(205, 187, 187);
+    line-height: 20px;
+    padding: 5px;
+    border-radius: 8px;
+    opacity: 0;
+}
+
+.overlay:target .close {
+    animation: slideDownFade .5s .5s forwards;
+}
+
+.overlay:target .next {
+    animation: fade .5s .5s forwards;
+}
+.overlay:target .prev {
+    animation: fade .5s .5s forwards;
+}
+
+/* NAVIGASI */
+.next, .prev {
+    width: 57px;
+    height: 93px;
+    background-image: url(../img/next.png);
+    position: absolute;
+    filter: brightness(0) invert(1);
+    text-indent: -9999px;
+    top: 45%;
+    margin-left: 50px;
+    opacity: 0;
+}
+
+.prev {
+    background-image: url(../img/prev.png);
+    margin-left: -100px;
+}
+
+/* ANIMASI */
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomDanFade {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideDownFade {
+    0% {
+    opacity: 0;
+    margin-top: -20px;
+
+    }
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+
+
+}
+
+
+
+
+
+
+
